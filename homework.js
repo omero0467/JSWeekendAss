@@ -202,20 +202,38 @@ function toCamelCase(str) {
     }
     return myArr2
 }
+// -------------------------------test-------------------------
+// console.log(toCamelCase('My_hero_Academia'));
 
-console.log(toCamelCase('My_hero_Academia'));
 // Ex 5.4------------------------------------------------------
 function toWeirdCase(str) {
-    // let myArr = []
-    // str.includes(' ')?myArr=str.split(' '): null;
-    for (let i = 0; i < str.length; i+2) {
-            str.charAt(i).toUpperCase()
-        
+  // let mystr = str
+  let myArr = [];
+  if (str.includes(" ")) {
+    myArr = str.split(" ").map(el=> el.split(''))
+
+    for (let el of myArr) {
+        for (let i = 0; i < el.length; i += 2) {
+            el.splice(i, 1, el[i].toUpperCase());
+        };
+        for (let i = 1; i < el.length; i += 2) {
+            el.splice(i, 1, el[i].toLowerCase());
+        };
     }
-    for (let i = 0; i < str.length; i++) {
-            str.charAt(i).toLowerCase()
-        
+    for (let i = 0; i < myArr.length; i++) {
+            myArr[i]=myArr[i].join('');
     }
- return str
+    return myArr.join(' ')
+  } else {
+    myArr = str.split("");
+    for (let i = 0; i < str.length; i += 2) {
+        myArr.splice(i, 1, myArr[i][0].toUpperCase());
+      }
+      for (let i = 1; i < str.length; i += 2) {
+        myArr.splice(i, 1, myArr[i][0].toLowerCase());
+      }
+      return myArr.join('')
+  }
+  console.log(myArr);
 }
- console.log(toWeirdCase('string'));
+ console.log(toWeirdCase('Weird STRIng CAse'));
