@@ -192,15 +192,30 @@ function repeatStr (num, str) {
 // );
 // Ex 5.3------------------------------------------------------
 function toCamelCase(str) {
-let myArr = []
-str.includes('-')? myArr=str.split('-') : myArr=str.split('_');
-let myArr2 = []
-for(let i=0; i<myArr.length; i++){
-    let el = myArr[i]
-    el = el.charAt(0).toUpperCase()+el.slice(1)
-    myArr2.push(el)
-}
-return myArr2
+    let myArr = []
+    str.includes('-')? myArr=str.split('-') : myArr=str.split('_');
+    let myArr2 = []
+    for(let i=0; i<myArr.length; i++){
+        let el = myArr[i]
+        el = el.charAt(0).toUpperCase()+el.slice(1)
+        myArr2.push(el)
+    }
+    return myArr2
 }
 
 console.log(toCamelCase('My_hero_Academia'));
+// Ex 5.4------------------------------------------------------
+function toWeirdCase(str) {
+    // let myArr = []
+    // str.includes(' ')?myArr=str.split(' '): null;
+    for (let i = 0; i < str.length; i+2) {
+            str.charAt(i).toUpperCase()
+        
+    }
+    for (let i = 0; i < str.length; i++) {
+            str.charAt(i).toLowerCase()
+        
+    }
+ return str
+}
+ console.log(toWeirdCase('string'));
